@@ -42,4 +42,9 @@ Applied in the attendance module to handle different attendance calculation stra
 ### Prerequisites
  
 - .NET 8 SDK
+<<<<<<< HEAD
 - SQL Server
+=======
+- SQL Server
+-Swagger Testing Tool
+>>>>>>> b356a50643071bb04f40835cb0bb0c45dbc94b34
