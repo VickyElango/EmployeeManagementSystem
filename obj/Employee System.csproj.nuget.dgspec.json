@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Final_Dotnet_Projects\\Employee System\\Employee System.csproj": {}
+    "D:\\Dotnet_Final\\Employee System\\Employee System.csproj": {}
   },
   "projects": {
-    "D:\\Final_Dotnet_Projects\\Employee System\\Employee System.csproj": {
+    "D:\\Dotnet_Final\\Employee System\\Employee System.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Final_Dotnet_Projects\\Employee System\\Employee System.csproj",
+        "projectUniqueName": "D:\\Dotnet_Final\\Employee System\\Employee System.csproj",
         "projectName": "Employee System",
-        "projectPath": "D:\\Final_Dotnet_Projects\\Employee System\\Employee System.csproj",
+        "projectPath": "D:\\Dotnet_Final\\Employee System\\Employee System.csproj",
         "packagesPath": "C:\\Users\\VigneshElangovan\\.nuget\\packages\\",
-        "outputPath": "D:\\Final_Dotnet_Projects\\Employee System\\obj\\",
+        "outputPath": "D:\\Dotnet_Final\\Employee System\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\VigneshElangovan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -78,6 +78,10 @@
             "NLog": {
               "target": "Package",
               "version": "[5.3.4, )"
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[5.3.14, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",

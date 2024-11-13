@@ -9,6 +9,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Employee_System.Controllers
 {
@@ -35,7 +36,7 @@ namespace Employee_System.Controllers
             _signInManager = signInManager;
             _configuration = configuration;
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterUserModel model)
         {

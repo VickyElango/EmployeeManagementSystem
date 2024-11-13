@@ -54,7 +54,7 @@ namespace Employee_System.Controllers
                 return NotFound();
             }
 
-            var employeeDTO = _mapper.Map<EmployeeDTO>(employee);
+            var employeeDTO = _mapper.Map<GetByIdEmployeeDTO>(employee);
             return Ok(employeeDTO);
         }
 
@@ -99,7 +99,7 @@ namespace Employee_System.Controllers
             _logger.Info($"Employee with ID {employee.EmployeeId} created successfully.");
 
             // Map the newly created Employee to a DTO for the response
-            var createdEmployeeDTO = _mapper.Map<CreateEmployeeDTO>(employee);
+            var createdEmployeeDTO = _mapper.Map<EmployeeDTO>(employee);
 
             // Return the created employee with the appropriate route
             return CreatedAtAction(nameof(GetEmployeeById), new { id = employee.EmployeeId }, createdEmployeeDTO);

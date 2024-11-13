@@ -19,9 +19,20 @@ using Employee_System.Validator;
 using FluentValidation.AspNetCore;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 using System.Text.Json.Serialization;
+using NLog;
+using NLog.Web;
 
+var logger = NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
+try
+{
+    logger.Info("Application is starting up");
 var builder = WebApplication.CreateBuilder(args);
 
+//builder.Services.AddControllers().AddJsonOptions(options =>
+//{
+//    // Enable ReferenceHandler.Preserve for JSON serialization to handle circular references
+//    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+//});
 
 // Register DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -130,6 +141,19 @@ using (var scope = app.Services.CreateScope())
     await SeedRolesAsync(roleManager);
 }
 
+//async Task SeedRolesAsync(RoleManager<IdentityRole> roleManager)
+//{
+//    string[] roleNames = { "Admin", "HR", "Employee" };
+
+//    foreach (var roleName in roleNames)
+//    {
+//        if (!await roleManager.RoleExistsAsync(roleName))
+//        {
+//            await roleManager.CreateAsync(new IdentityRole(roleName));
+//        }
+//    }
+//}
+
 async Task SeedRolesAsync(RoleManager<IdentityRole> roleManager)
 {
     // Define roles with custom Ids
@@ -161,3 +185,13 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers(); // This line remains unchanged
 app.Run();
+}
+catch (Exception ex)
+{
+    logger.Error(ex, "Application stopped due to an exception");
+    throw;
+}
+finally
+{
+    LogManager.Shutdown();
+}
